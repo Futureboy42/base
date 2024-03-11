@@ -9,6 +9,9 @@ import hu.bme.mit.train.interfaces.TrainSensor;
 import hu.bme.mit.train.interfaces.TrainUser;
 import hu.bme.mit.train.system.TrainSystem;
 
+import com.google.common.collect.HashBasedTable;
+import com.google.common.collect.Table;
+
 public class TrainSystemTest {
 
 	TrainController controller;
@@ -61,4 +64,16 @@ public class TrainSystemTest {
 		controller.emergencyBrake();
 		Assert.assertEquals(0, controller.getReferenceSpeed());
 	}
+
+	@Test
+	public void tachTest() {
+		
+		user.overrideJoystickPosition(10);
+		Assert.assertEquals(sensor.getTachSize(), 0);
+		sensor.tachograph();
+		
+
+		Assert.assertEquals(sensor.getTachSize(), 1);
+	}
+
 }
