@@ -52,6 +52,7 @@ Setting the reference speed of the train works in the following way.
 * The user can set the position of a joystick, which can be zero or a positive/negative number.
 * In each time unit, the controller adds the position of the joystick to the current reference speed. Therefore the reference speed does not change if the position is zero, it is incremented if the position is positive and it is decremented if the position is negative.
 * After each change, the speed limit is checked and enforced.
+* In case of emergency, the user can press the emergency brake button, and the reference speed will change to 0 immediately.
 
 The figure below illustrates this behavior using an example.
 
